@@ -77,6 +77,7 @@ export default function HeroSection() {
         </div>
     </div>
     </section>
+    
     <div className="container mx-auto">
       <section id='features' className="bg-white flex flex-wrap justify-between items-center">
         <div className="w-full md:w-1/2 px-4">
