@@ -1,103 +1,56 @@
-import Image from "next/image";
+import React, { useState } from 'react';
+import Ios from './Ios';
 
-export default function HeroSection() {
-  return (
-    <>
-    <section id="hero">
-    <div className="relative font-inter h-screen overflow-hidden bg-[url('/img/background.svg')] bg-top top-0 bg-white bg-no-repeat ">
-        <div className="max-w-[85rem]  mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
-        <div className="flex justify-center"></div>
+export default () => {
+    const [url, setUrl] = useState("https://");
 
-        <div className="mt-16 max-w-xl text-center mx-auto">
-            <h1 className="block font-bold text-gray-800 text-5xl md:text-5xl lg:text-8xl">
-            Every Pixel Matters
-            </h1>
-        </div>
+    const handleUrlSubmit = (e) => {
+        e.preventDefault();
+        // Update the URL only when the "Pix it" button is clicked
+        setUrl(e.target.elements.url.value);
+    };
 
-        <div className="mt-5 max-w-3xl text-center mx-auto">
-            <p className="md:text-xl text-base text-gray-600">
-            Discover Pixel Perfect, the ultimate open-source companion,
-            empowering you to achieve flawless web design mastery, down to
-            the last pixel.
-            </p>
-        </div>
+    return (
+        <>
+            <header></header>
+            <section className="mt-24 mx-auto max-w-screen-xl pb-4 px-4 items-center lg:flex md:px-8">
+                <div className="space-y-4 flex-1 sm:text-center lg:text-left">
+                    <h1 className="text-gray-800 font-bold text-4xl xl:text-5xl">
+                        Optimize your website for
+                         <span className="text-purple-600"> Every screen</span>
+                    </h1>
+                    <p className="text-gray-500 max-w-xl leading-relaxed sm:mx-auto lg:ml-0">
+                        At Pixel Perfect, we redefine precision. From websites to graphics, every pixel matters. Let's transform your vision into pixel-perfect reality.
+                    </p>
+                    <div>
+                        <p className="text-gray-800 py-3">
+                            Enter website URL
+                        </p>
+                        <form onSubmit={handleUrlSubmit} className="items-center space-y-3 sm:justify-center sm:space-x-3 sm:space-y-0 sm:flex lg:justify-start">
+                            <input
+                                type="text"
+                                name="url"
+                                placeholder="Enter website URL"
+                                className="text-gray-500 border outline-none p-3 rounded-md w-full sm:w-72"
+                            />
+                            <button type="submit" className="outline-none bg-gray-700 text-white text-center px-4 py-3 rounded-md shadow w-full ring-offset-2 ring-gray-700 focus:ring-2  sm:w-auto">
+                                Pix it
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div className="flex-1 text-center mt-4 lg:mt-0 lg:ml-3">
+                    {/* <img src="https://i.postimg.cc/kgd4WhyS/container.png" className="w-full mx-auto sm:w-10/12  lg:w-full" alt="Website simulation on different devices" /> */}
+                    <img src="/img/home.png" className="w-full mx-auto sm:w-10/12  lg:w-full" alt="Website simulation on different devices" />
+                </div>
+            </section>
 
-        <form className="flex mt-8 items-center max-w-sm mx-auto">
-            <label htmlFor="simple-search" className="sr-only">
-            Search
-            </label>
-            <div className="relative w-full">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg
-                className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 18 20"
-                >
-                <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2"
-                />
-                </svg>
-            </div>
-            <input
-                type="text"
-                id="simple-search"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full ps-10 p-2.5  "
-                placeholder="Enter your url..."
-                required
-            />
-            </div>
-            <button
-            type="submit"
-            className="p-2.5 ms-2 text-sm font-medium text-white bg-purple-700 rounded-lg border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 "
-            >
-            <svg
-                className="w-4 h-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-            >
-                <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-            </svg>
-            <span className="sr-only">Search</span>
-            </button>
-        </form>
-        </div>
-    </div>
-    </section>
-    
-    <div className="container mx-auto">
-      <section id='features' className="bg-white flex flex-wrap justify-between items-center">
-        <div className="w-full md:w-1/2 px-4">
-          <Image src='/img/screen5.png' alt=" img" width={300} height={200} className="w-full" />
-        </div>
-        <div className="w-full md:w-1/2 px-4">
-          {/* Add your text content here */}
-          <h2 className="text-6xl font-bold mb-4">Responsive Design, Limitless Possibilities.</h2>
-          <div className="font-inter text-gray-800">
-          <ul style={{ listStyleType: 'disc' }}>
-            <li><b>Seamless adaptation</b>: Websites dynamically adjust layout and content for any screen size or device.</li>
-            <li><b>Enhanced user experience</b>: Consistent and intuitive browsing experiences across desktops, tablets, and smartphones.</li>
-            <li><b>Versatile solutions</b>: Craft immersive digital journeys that captivate and retain users.</li>
-            <li><b>Future-proofing</b>: Stay ahead in the ever-evolving digital landscape with adaptive design principles.</li>
-        </ul>
-
-          </div>
-        </div>
-      </section>
-    </div>
-    </>
-  );
-}
+            {/* <section className="mt-16 mx-auto max-w-screen-xl px-4">
+                <h2 className="text-gray-800 font-bold text-3xl text-center">
+                    Simulate on iPhone
+                </h2>
+                <Ios url={`https://${url}`} />
+            </section> */}
+        </>
+    );
+};
