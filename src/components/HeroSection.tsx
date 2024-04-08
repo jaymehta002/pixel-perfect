@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import Ios from './Ios';
+import Image from 'next/image';
 
-export default () => {
-    const [url, setUrl] = useState("https://");
-
-    const handleUrlSubmit = (e) => {
+const HeroSection = () => {
+    const [url, setUrl] = useState('www.pixelperfect.com');
+    const handleUrlSubmit = (e: any) => {
         e.preventDefault();
-        // Update the URL only when the "Pix it" button is clicked
-        setUrl(e.target.elements.url.value);
     };
 
     return (
         <>
-            <header></header>
             <section className="mt-24 mx-auto max-w-screen-xl pb-4 px-4 items-center lg:flex md:px-8">
                 <div className="space-y-4 flex-1 sm:text-center lg:text-left">
                     <h1 className="text-gray-800 font-bold text-4xl xl:text-5xl">
@@ -20,7 +17,7 @@ export default () => {
                          <span className="text-purple-600"> Every screen</span>
                     </h1>
                     <p className="text-gray-500 max-w-xl leading-relaxed sm:mx-auto lg:ml-0">
-                        At Pixel Perfect, we redefine precision. From websites to graphics, every pixel matters. Let's transform your vision into pixel-perfect reality.
+                        At Pixel Perfect, we redefine precision. From websites to graphics, every pixel matters. Let&#39;s transform your vision into pixel-perfect reality.
                     </p>
                     <div>
                         <p className="text-gray-800 py-3">
@@ -32,6 +29,8 @@ export default () => {
                                 name="url"
                                 placeholder="Enter website URL"
                                 className="text-gray-500 border outline-none p-3 rounded-md w-full sm:w-72"
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)}
                             />
                             <button type="submit" className="outline-none bg-gray-700 text-white text-center px-4 py-3 rounded-md shadow w-full ring-offset-2 ring-gray-700 focus:ring-2  sm:w-auto">
                                 Pix it
@@ -41,7 +40,7 @@ export default () => {
                 </div>
                 <div className="flex-1 text-center mt-4 lg:mt-0 lg:ml-3">
                     {/* <img src="https://i.postimg.cc/kgd4WhyS/container.png" className="w-full mx-auto sm:w-10/12  lg:w-full" alt="Website simulation on different devices" /> */}
-                    <img src="/img/home.png" className="w-full mx-auto sm:w-10/12  lg:w-full" alt="Website simulation on different devices" />
+                    <Image width={1560} height={1080} src="/img/home.png" className="w-full mx-auto sm:w-10/12  lg:w-full" alt="Website simulation on different devices" />
                 </div>
             </section>
 
@@ -54,3 +53,6 @@ export default () => {
         </>
     );
 };
+
+
+export default HeroSection;

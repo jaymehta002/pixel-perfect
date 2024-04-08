@@ -1,4 +1,5 @@
-const Ios = ({url}) => {
+
+const Ios = ({url}: {url: string}) => {
   return (
     <div className="grid grid-cols-4 mx-20 gap-2">
     <div className=" text-center">
@@ -48,5 +49,6 @@ const Ios = ({url}) => {
   </div>
   )
 }
+
 
 export default Ios
