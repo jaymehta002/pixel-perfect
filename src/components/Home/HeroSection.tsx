@@ -19,7 +19,7 @@ const HeroSection = () => {
         </h1>
         <p className="text-gray-500 max-w-md  leading-relaxed mt-4">
           At Pixel Perfect, we redefine precision. From websites to graphics,
-          every pixel matters. Let's transform your vision into pixel-perfect
+          every pixel matters. Let&#39;s transform your vision into pixel-perfect
           reality.
         </p>
           <motion.button
